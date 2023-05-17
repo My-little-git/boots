@@ -4,3 +4,11 @@
 .header__logo{
     width: 100px;
 }
+
+/* Slider */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon,
+.carousel-indicators{
+    filter: invert(100%);
+}

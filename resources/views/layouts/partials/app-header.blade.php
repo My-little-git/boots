@@ -6,20 +6,28 @@
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="/catalog.php">Каталог</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about.php">О нас</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('catalog') }}">Каталог</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">О нас</a></li>
                 </ul>
             </div>
-            @auth
             <div class="profile">
-                <a href="/profile.php" class="btn btn-success me-2">Профиль</a>
-                <a href="/basket.php" class="btn btn-warning">Корзина</a>
+                @auth
+                    <a href="/profile.php" class="btn btn-success me-2">Профиль</a>
+                    <a href="{{ route('cart') }}" class="btn btn-warning">Корзина</a>
+                    <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Выйти</button>
+                    </form>
+                @elseauth('admin')
+                    <h4 class="me-3">Admin</h4>
+                    <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Выйти</button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-primary">Войти</a>
+                @endauth
             </div>
-            @else
-            <div class="auth">
-                <a href="{{ route('login') }}" class="btn btn-primary">Войти</a>
-            </div>
-            @endauth
         </div>
     </nav>
 </header>
