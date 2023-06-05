@@ -11,7 +11,7 @@
                 @foreach($cart as $product)
                     <div class="col-3">
                         <div class="card">
-                            <img src="{{ asset('images/products') . '/' . $product->img }}" alt="{{ $product->name }}" class="card-img-top">
+                            <img src="{{ asset('images/product') . '/' . $product->img }}" alt="{{ $product->name }}" class="card-img-top">
                             <div class="card-body">
                                 <a href="{{ route('card', $product->id) }}" class="text-decoration-none text-reset">
                                     <h5 class="card-title">{{ $product->name }}</h5>

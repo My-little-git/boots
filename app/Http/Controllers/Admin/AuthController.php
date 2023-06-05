@@ -27,7 +27,7 @@ class AuthController extends Controller
         if (Auth('admin')->attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->route('admin.product.index');
         }
 
         return back()->withErrors([

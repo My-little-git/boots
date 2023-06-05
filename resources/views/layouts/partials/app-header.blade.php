@@ -10,7 +10,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">О нас</a></li>
                 </ul>
             </div>
-            <div class="profile">
+            <div class="profile d-flex align-items-center">
                 @auth
                     <a href="/profile.php" class="btn btn-success me-2">Профиль</a>
                     <a href="{{ route('cart') }}" class="btn btn-warning">Корзина</a>
@@ -19,7 +19,7 @@
                         <button type="submit" class="btn btn-danger">Выйти</button>
                     </form>
                 @elseauth('admin')
-                    <h4 class="me-3">Admin</h4>
+                    <h4 class="me-3 d-inline">Admin</h4>
                     <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-danger">Выйти</button>

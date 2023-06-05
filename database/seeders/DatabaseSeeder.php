@@ -20,64 +20,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
-        $categories = ['Кроссовки', 'Кеды', 'Ботинки'];
-
-        foreach ($categories as $category) {
-            Category::create(['name' => $category]);
-        }
-
-        $countries = ['США', 'Россия', 'Великобритания', 'Китай'];
-
-        foreach ($countries as $country) {
-            Country::create(['name' => $country]);
-        }
-
-        $statuses = ['Новый', 'Подтвержденный', 'Отмененный'];
-
-        foreach ($statuses as $status) {
-            Status::create(['name' => $status]);
-        }
-
-        $products = [
-            [
-                'name' => 'TimeJump',
-                'price' => 1499,
-                'category_id' => 1,
-                'country_id' => 2,
-                'img' => 'M4154600_001-preview.jpg'
-            ],
-            [
-                'name' => 'Alessio Nesca',
-                'price' => 2999,
-                'category_id' => 1,
-                'country_id' => 3,
-                'img' => 'M5104631_001-preview.jpg'
-            ],
-            [
-                'name' => 'PIERRE CARDIN',
-                'price' => 4499,
-                'category_id' => 3,
-                'country_id' => 1,
-                'img' => 'M5104052_001-preview.jpg'
-            ],
-        ];
-
-        foreach($products as $product) {
-            Product::create($product);
-        }
-
-        User::create([
-            'name' => 'Михаил',
-            'surname' => 'Осипов',
-            'patronymic' => 'Сергеевич',
-            'email' => 'misha@mail.ru',
-            'password' => '123456'
-        ]);
-
-        Admin::create([
-            'email' => 'misha@mail.ru',
-            'password' => '123456'
+        $this->call([
+            CountrySeeder::class,
+            CategorySeeder::class,
+            StatusSeeder::class,
+            ProductSeeder::class,
+            UserSeeder::class,
+            AdminSeeder::class
         ]);
     }
 }

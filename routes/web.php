@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
-Route::get('/card/{id}', [CatalogController::class, 'show'])->name('card');
+Route::get('/catalog', [ProductController::class, 'index'])->name('catalog');
+Route::get('/card/{id}', [ProductController::class, 'show'])->name('card');
 Route::view('/about', 'about')->name('about');
 
 Route::middleware('guest')->group(function () {

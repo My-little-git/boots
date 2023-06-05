@@ -18,7 +18,7 @@
                             <div class="card mb-3 w-75 mx-auto">
                                 <div class="row g-0">
                                     <div class="col-md-7">
-                                        <img src="{{ asset('images/products') . '/' . $product->img }}" class="img-fluid rounded-start w-100" alt="{{ $product->name }}">
+                                        <img src="{{ asset('images/product') . '/' . $product->img }}" class="img-fluid rounded-start w-100" alt="{{ $product->name }}">
                                     </div>
                                     <div class="col-md-5">
                                         <div class="card-body">
